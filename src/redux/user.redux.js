@@ -35,7 +35,7 @@ function authSuccess(obj){
 function errorMsg(msg){
   return {msg,type:ERROR_MSG}
 }
-export function loadData(useinfo){
+export function loadData(userinfo){
   return {type:LOAD_DATA, payload:userinfo}
 
 }

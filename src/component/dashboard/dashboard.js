@@ -5,6 +5,7 @@ import { Switch, Route } from 'react-router-dom'
 import NavLinkBar from '../NavLink/NavLink'
 import Boss from '../../component/boss/boss'
 import Genius from '../../component/genius/genius'
+import User from '../user/user'
 
 @connect(
   state => state
@@ -44,13 +45,13 @@ class Dashboard extends React.Component{
         text: '我',
         icon: 'user',
         title: '个人中心',
-        // component: User
+        component: User
       }
     ]
     return (
       <div>
         <NavBar className='fixed-header' mode='dard'>{navList.find(v => v.path === pathname).title}</NavBar>
-        <div style={{marginTop:45}}>
+        <div>
           <Switch>
             {navList.map(v =>(
               <Route key={v.path} path={v.path} component={v.component}></Route>
