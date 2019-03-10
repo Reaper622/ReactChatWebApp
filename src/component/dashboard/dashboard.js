@@ -4,6 +4,7 @@ import { NavBar } from 'antd-mobile'
 import { Switch, Route } from 'react-router-dom'
 import NavLinkBar from '../NavLink/NavLink'
 import Boss from '../../component/boss/boss'
+import Genius from '../../component/genius/genius'
 
 @connect(
   state => state
@@ -28,7 +29,7 @@ class Dashboard extends React.Component{
         text: 'boss',
         icon: 'job',
         title: 'Boss列表',
-        // component: Genius,
+        component: Genius,
         hide: user.type === 'boss'
       },
       {
