@@ -6,6 +6,7 @@ import NavLinkBar from '../NavLink/NavLink'
 import Boss from '../../component/boss/boss'
 import Genius from '../../component/genius/genius'
 import User from '../user/user'
+import Msg from '../../component/msg/msg'
 import {getMsgList, recvMsg} from '../../redux/chat.redux'
 
 @connect(
@@ -20,7 +21,7 @@ class Dashboard extends React.Component{
     }
   }
   render() {
-    console.log(this.props)
+    // console.log(this.props)
     const {pathname} = this.props.location
     const user = this.props.user
     const navList = [
@@ -45,7 +46,7 @@ class Dashboard extends React.Component{
         text: '消息',
         icon: 'msg',
         title: '消息列表',
-        // component: Msg
+        component: Msg
       },
       {
         path: '/me',
