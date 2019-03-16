@@ -2,14 +2,14 @@ import React from 'react'
 import {List, InputItem, NavBar, Icon, Grid} from 'antd-mobile'
 import io from 'socket.io-client'
 import {connect} from 'react-redux'
-import {getMsgList, sendMsg, recvMsg} from '../../redux/chat.redux'
+import {getMsgList, sendMsg, recvMsg, readMsg} from '../../redux/chat.redux'
 import { getChatId } from '../../util'
 
 const socket = io('ws://localhost:9093')
 
 @connect(
   state=>state,
-  { getMsgList, sendMsg, recvMsg }
+  { getMsgList, sendMsg, recvMsg, readMsg }
 )
 class Chat extends React.Component{
   constructor(props){
@@ -21,6 +21,12 @@ class Chat extends React.Component{
       this.props.getMsgList()
       this.props.recvMsg()
     }
+    const  to = this.props.match.params.user
+    this.props.readMsg(to)
+  }
+  componentWillUnmount() {
+    const to = this.props.match.params.user
+    this.props.readMsg(to)
   }
   // 解决Emoji表情出现只占一格的问题
   fixCarousel(){
