@@ -4,13 +4,13 @@ import { List, InputItem, WhiteSpace, Button, Radio } from 'antd-mobile'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { register } from '../../redux/user.redux'
-import imoocForm from '../../component/imooc-form/imooc-form'
+import easyForm from '../../component/easy-form/easy-form'
 
 @connect(
   state => state.user,
   { register }
 )
-@imoocForm
+@easyForm
 class Register extends React.Component{
   constructor(props) {
     super(props);

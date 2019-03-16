@@ -5,7 +5,8 @@ const model = require('./model')
 const User = model.getModel('user')
 const Chat = model.getModel('chat')
 const _filter = {'pwd':0, '_v':0}
-// Chat.remove({},function(e,d){})
+// Chat.remove({},function(e,d){}) //清空数据库中消息
+// User.remove({},function(e,d){}) //清空数据库中用户
 
 Router.get('/list',function(req, res){
   const {type} = req.query
